@@ -5,8 +5,15 @@ from pyrob.api import *
 
 @task
 def task_3_3():
-    pass
-
+    if wall_is_on_the_left() and wall_is_on_the_right() and wall_is_beneath():
+        move_up(n=1)
+    elif wall_is_on_the_left() and wall_is_on_the_right() and wall_is_above():
+        move_down(n=1)
+    elif wall_is_on_the_left() and wall_is_above() and wall_is_beneath():
+        move_right(n=1)
+    else:
+        move_left(n=1)
+    
 
 if __name__ == '__main__':
     run_tasks()
